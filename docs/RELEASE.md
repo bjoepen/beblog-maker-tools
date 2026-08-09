@@ -1,9 +1,11 @@
 # Release Workflow
 
-## Build 001
+## Build 002 – UI Refinement
 
 Öffentliche Produktversion: `0.1.0`  
-Interner Build: `001 – Foundation`
+Interner Build: `002 – UI Refinement`
+
+Build 002 ist bewusst ein Refinement-Build. Er ersetzt keine Foundation-Dokumentation und führt keine neuen Rechnerformeln ein.
 
 ## Vor dem Commit
 
@@ -19,16 +21,17 @@ pnpm tauri:build
 ```bash
 git switch main
 git pull --ff-only
-git switch -c build/001-foundation
+git switch -c build/002-ui-refinement
 
 git status
 git diff
 
 pnpm validate
+cargo check --manifest-path src-tauri/Cargo.toml
 
 git add .
-git commit -m "feat: complete BeBlog Maker Tools build 001 foundation"
-git push -u origin build/001-foundation
+git commit -m "feat: refine BeBlog Maker Tools UI for build 002"
+git push -u origin build/002-ui-refinement
 ```
 
 Nach Review und Merge:
@@ -36,10 +39,20 @@ Nach Review und Merge:
 ```bash
 git switch main
 git pull --ff-only
-git tag -a v0.1.0 -m "BeBlog Maker Tools 0.1.0 – Foundation"
-git push origin v0.1.0
+```
+
+Da Build 002 weiterhin zur Produktversion `0.1.0` gehört, muss nicht zwangsläufig ein neuer öffentlicher Versions-Tag gesetzt werden. Falls ein Build-Tag gewünscht ist, kann beispielsweise verwendet werden:
+
+```text
+build-002-ui-refinement
 ```
 
 ## Release-Artefakte
 
-Für die frühe Foundation reicht zunächst das von Tauri erzeugte macOS-App-Bundle. Signierung, Notarisierung und Apple Developer ID sind ausdrücklich nicht Bestandteil von Build 001.
+Tauri erzeugt die macOS-Bundles unter:
+
+```text
+src-tauri/target/release/bundle/
+```
+
+Signierung, Notarisierung und Apple Developer ID bleiben außerhalb des Build-002-Scopes.
