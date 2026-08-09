@@ -14,15 +14,17 @@
       {
         "label": "main",
         "title": "BeBlog Maker Tools",
-        "width": 1080,
-        "height": 720,
-        "minWidth": 760,
-        "minHeight": 600,
+        "width": 1260,
+        "height": 820,
+        "minWidth": 820,
+        "minHeight": 620,
         "resizable": true,
         "fullscreen": false
       }
     ],
-    "security": { "csp": null }
+    "security": {
+      "csp": null
+    }
   },
   "bundle": {
     "active": true,

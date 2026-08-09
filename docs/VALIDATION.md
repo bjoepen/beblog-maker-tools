@@ -1,24 +1,68 @@
-# Validation – Build 001
+# Validierung
 
-## Automatisiert
+## Build 002 – UI Refinement
 
-- Zahnriemenformel: Gleich große Zahnscheiben und Fehlerfall
-- Achsskalierung: Zahnriemenantrieb
-- Achsskalierung: Spindelantrieb
-- Drehzahl/Vorschub: Referenzbeispiel
+Build 002 verändert primär die UI. Die Berechnungslogik aus Build 001 bleibt getrennt und wird weiterhin durch Unit Tests abgesichert.
 
-Ausführen:
+## Lokale Prüfung auf macOS
+
+Nach dem Entpacken bzw. Auschecken:
 
 ```bash
-pnpm test
+pnpm install
+pnpm validate
 ```
 
-## Manuelle Smoke Tests
+`pnpm validate` führt aus:
 
-- App startet unter macOS.
-- Sidebar wechselt zwischen allen drei Werkzeugen.
-- Komma- und Punkteingaben funktionieren.
-- Ungültige Werte erzeugen eine lokale Validierungsmeldung.
-- GRBL/LinuxCNC-Ausgabe reagiert auf Achs- und Eingabeänderungen.
-- Estlcam zeigt bewusst den Foundation-Hinweis statt ungeprüfter Konfigurationswerte.
-- Production Build kann mit `pnpm tauri:build` erzeugt werden.
+```text
+pnpm check
+pnpm test
+pnpm build
+```
+
+Erwartung:
+
+- TypeScript endet ohne Fehler.
+- Vitest meldet alle Tests erfolgreich.
+- Vite erzeugt den Produktionsbuild unter `dist/`.
+
+Die in Build 001 aufgetretene Meldung `Cannot find name 'process'` ist in Build 002 dauerhaft behoben: `@types/node` ist als Dev Dependency enthalten und `node` ist in `tsconfig.json` registriert.
+
+## Tauri-Prüfung
+
+```bash
+cargo check --manifest-path src-tauri/Cargo.toml
+pnpm tauri:dev
+```
+
+Im Development-Build prüfen:
+
+- App startet.
+- Sidebar zeigt Zahnriemen, Achsskalierung und Drehzahl & Vorschub.
+- aktive Navigation verwendet BeBlog-Blau.
+- Website-Link zeigt `blog.beblog.de`.
+- Eingabewerte werden direkt neu berechnet.
+- Punkt und Komma funktionieren als Dezimaltrennzeichen.
+- Zurücksetzen stellt die Startwerte wieder her.
+- Berechnungsgrundlagen lassen sich ein- und ausklappen.
+
+## Fachliche Regression
+
+Die Unit Tests unter `tests/` müssen unverändert erfolgreich sein. Build 002 darf keine Änderung an den Kernformeln einführen.
+
+## Release-Build
+
+```bash
+pnpm tauri:build
+```
+
+Erwartete Bundles befinden sich anschließend unter:
+
+```text
+src-tauri/target/release/bundle/
+```
+
+## Bereitstellungsumgebung
+
+Die Erstellung dieses Repository-Pakets erfolgte ohne Netzwerkzugriff und ohne installierte pnpm-/Rust-/Tauri-Abhängigkeiten. Deshalb müssen `pnpm validate`, `cargo check` und `pnpm tauri:build` auf dem Ziel-Mac ausgeführt werden.
