@@ -83,3 +83,15 @@ Manuell zusätzlich prüfen:
 - bei 18 mm³/s Limit ergibt sich 200 mm/s maximale Geschwindigkeit
 - Filamentrechnung funktioniert in beiden Richtungen
 - Maßkorrektur: 20,00 / 19,80 × 100 ≈ 101,010 %
+
+
+## Build 004 – zusätzliche Prüfpunkte
+
+- Schraubenfinder: M6 Sechskant → SW 10 mm
+- Schraubenfinder: M6 ISO 4762 → Innensechskant 5 mm
+- Schraubenfinder: M10 ISO 4017 → SW 16 mm
+- Gewinde & Bohrungen: M6 → Kernloch 5,0 mm
+- Gewinde & Bohrungen: M8 → Kernloch 6,8 mm
+- Lochkreis: Ø80 mm / 4 Bohrungen / 0° → (40,0), (0,40), (-40,0), (0,-40)
+- Wechsel zwischen allen neun Werkzeugen ohne Fehler
+- Sidebar bleibt bei Standardfensterhöhe bedienbar

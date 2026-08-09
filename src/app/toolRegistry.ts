@@ -1,5 +1,8 @@
-export type ToolCategory = 'Antrieb' | 'CNC' | '3D-Druck';
-export type ToolId = 'timing-belt' | 'axis-scaling' | 'feeds-speeds' | 'volumetric-flow' | 'filament-cost' | 'dimensional-correction';
+export type ToolCategory = 'Antrieb' | 'CNC' | '3D-Druck' | 'Werkstatt';
+export type ToolId =
+  | 'timing-belt' | 'axis-scaling' | 'feeds-speeds'
+  | 'volumetric-flow' | 'filament-cost' | 'dimensional-correction'
+  | 'fastener-finder' | 'thread-drill' | 'bolt-circle';
 
 export interface ToolDefinition {
   id: ToolId;
@@ -14,5 +17,8 @@ export const TOOL_DEFINITIONS: ToolDefinition[] = [
   { id: 'feeds-speeds', title: 'Drehzahl & Vorschub', category: 'CNC', description: 'Drehzahl und Vorschub aus Schnittdaten ableiten.' },
   { id: 'volumetric-flow', title: 'Volumenstrom', category: '3D-Druck', description: 'Materialfluss und maximale Druckgeschwindigkeit abschätzen.' },
   { id: 'filament-cost', title: 'Filament & Kosten', category: '3D-Druck', description: 'Länge, Gewicht, Volumen und Materialkosten umrechnen.' },
-  { id: 'dimensional-correction', title: 'Maßkorrektur', category: '3D-Druck', description: 'Skalierung aus Soll- und Istmaßen für X/Y/Z bestimmen.' }
+  { id: 'dimensional-correction', title: 'Maßkorrektur', category: '3D-Druck', description: 'Skalierung aus Soll- und Istmaßen für X/Y/Z bestimmen.' },
+  { id: 'fastener-finder', title: 'Schrauben & Schlüsselweiten', category: 'Werkstatt', description: 'Werkzeug, Regelgewinde und typische Bohrungswerte für metrische Schrauben nachschlagen.' },
+  { id: 'thread-drill', title: 'Gewinde & Bohrungen', category: 'Werkstatt', description: 'Kernloch- und Durchgangsbohrungen für metrische Regelgewinde nachschlagen.' },
+  { id: 'bolt-circle', title: 'Lochkreis', category: 'Werkstatt', description: 'Gleichmäßig verteilte Bohrungen auf einem Teilkreis als X/Y-Koordinaten berechnen.' }
 ];

@@ -1,7 +1,7 @@
 {
   "name": "beblog-maker-tools",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Kompakte macOS-Werkzeugsuite für Maker, CNC und Werkstatt.",
   "type": "module",
   "scripts": {

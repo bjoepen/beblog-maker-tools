@@ -65,3 +65,12 @@ Signierung, Notarisierung und Apple Developer ID bleiben außerhalb des Build-00
 - Commit: `feat: add 3D printing essentials for build 003`
 - PR-Ziel: `main`
 - Git-Anleitung: `docs/GIT-WORKFLOW-BUILD-003.md`
+
+
+## Build 004
+
+- Version: `0.1.2`
+- Codename: `Workshop Essentials`
+- Branch: `build/004-workshop-essentials`
+- Commit: `feat: add workshop essentials for build 004`
+- PR-Ziel: `main`
