@@ -1,63 +1,45 @@
-# Entwicklung
+# Development
 
-## Voraussetzungen auf macOS
+## Voraussetzungen
 
-1. Xcode Command Line Tools installieren:
-   ```bash
-   xcode-select --install
-   ```
-2. Rust über rustup installieren und aktualisieren.
-3. Node.js 22 oder neuer verwenden.
-4. pnpm installieren/aktivieren.
+- macOS
+- Xcode Command Line Tools
+- Node.js 22+
+- pnpm
+- Rust über rustup
 
-## Abhängigkeiten
+## Setup
 
 ```bash
 pnpm install
-```
-
-## Web-Frontend ohne Tauri starten
-
-```bash
-pnpm dev
-```
-
-## Tauri Development Build
-
-```bash
 pnpm tauri:dev
 ```
 
-## Tests
+## Qualitätscheck
 
-```bash
-pnpm test
-```
-
-## TypeScript-Prüfung
-
-```bash
-pnpm check
-```
-
-## Gesamte Frontend-Validierung
+Vor jedem Commit:
 
 ```bash
 pnpm validate
+cargo check --manifest-path src-tauri/Cargo.toml
 ```
 
-## Production Build
+## Architekturregel
 
-```bash
-pnpm tauri:build
+Berechnungslogik gehört nach `src/core/calculations/` und darf keine Svelte-Abhängigkeit besitzen. UI-spezifische Darstellung bleibt in Komponenten bzw. `src/tools/`.
+
+## Build 002
+
+Build 002 ist ein UI-Refinement. Neue technische Formeln oder neue Rechner gehören nicht in diesen Build.
+
+Branch-Vorschlag:
+
+```text
+build/002-ui-refinement
 ```
 
-## Neue Rechner hinzufügen
+Commit-Vorschlag:
 
-1. Reine Formel unter `src/core/calculations/` anlegen.
-2. Unit Tests schreiben.
-3. Werkzeug-UI unter `src/tools/<tool-id>/` anlegen.
-4. Werkzeug in `src/app/toolRegistry.ts` registrieren.
-5. Navigation in `App.svelte` um die Komponente ergänzen.
-6. Dokumentation und CHANGELOG aktualisieren.
-7. Definition of Done prüfen.
+```text
+feat: refine BeBlog Maker Tools UI for build 002
+```

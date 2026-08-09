@@ -1,6 +1,6 @@
 # Installation und lokaler Build
 
-Diese Anleitung richtet sich an macOS und Build 001.
+Diese Anleitung gilt für **BeBlog Maker Tools 0.1.0 · Build 002 – UI Refinement** auf macOS.
 
 ## 1. Voraussetzungen prüfen
 
@@ -18,7 +18,7 @@ Falls die Xcode Command Line Tools fehlen:
 xcode-select --install
 ```
 
-Rust wird über die offizielle rustup-Toolchain installiert. Für das Frontend wird Node.js 22+ und pnpm verwendet.
+Für das Frontend wird Node.js 22+ und pnpm verwendet. Rust wird über die rustup-Toolchain bereitgestellt.
 
 ## 2. Repository klonen
 
@@ -33,6 +33,8 @@ cd beblog-maker-tools
 pnpm install
 ```
 
+Build 002 enthält `@types/node` bereits als Dev Dependency. Eine manuelle Nachinstallation zur Behebung von `Cannot find name 'process'` ist daher nicht mehr erforderlich.
+
 ## 4. Browser-Entwicklung testen
 
 ```bash
@@ -45,9 +47,9 @@ pnpm dev
 pnpm tauri:dev
 ```
 
-Beim ersten Start lädt Cargo die Rust-Abhängigkeiten und kompiliert die native Desktop-Shell. Das kann deutlich länger dauern als spätere Starts.
+Beim ersten Start kann Cargo länger benötigen, weil die native Desktop-Shell und Rust-Abhängigkeiten kompiliert werden.
 
-## 6. Tests
+## 6. Validierung
 
 ```bash
 pnpm validate
@@ -68,4 +70,4 @@ src-tauri/target/release/bundle/
 
 ## Hinweis zur Signierung
 
-Build 001 setzt keine Apple Developer ID voraus. Dadurch können lokal erzeugte öffentliche Downloads von macOS/Gatekeeper entsprechend als unsigniert behandelt werden. Signierung und Notarisierung sind in der Foundation ausdrücklich nicht vorgesehen.
+Build 002 setzt weiterhin keine Apple Developer ID voraus. Lokal erzeugte öffentliche Downloads können von macOS/Gatekeeper daher als unsigniert behandelt werden.
