@@ -46,5 +46,33 @@
     <path d="M5.1 17.2a8 8 0 1 1 13.8 0" stroke="currentColor" stroke-width="1.5"/><path d="m12 12 4-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/>
   {:else if name === 'feed'}
     <path d="M4 12h13M13 8l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 7v10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".65"/>
+  {:else if name === 'flow3d'}
+    <path d="M6 7.5h12v3H6zM8 10.5v6.5m8-6.5v6.5M5 17h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="m10 14 2 2 2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  {:else if name === 'nozzle'}
+    <path d="M7 5h10l-2 7H9L7 5Zm3 7h4l-1 4h-2l-1-4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 16v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  {:else if name === 'layers'}
+    <path d="m12 5 8 4-8 4-8-4 8-4Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="m5 12 7 3.5 7-3.5M5 15.5 12 19l7-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  {:else if name === 'gauge'}
+    <path d="M5.1 17.2a8 8 0 1 1 13.8 0" stroke="currentColor" stroke-width="1.5"/><path d="m12 12 4.5-3.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/>
+  {:else if name === 'filament'}
+    <circle cx="12" cy="12" r="7.5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M18.2 16.2c2.1.5 2.4 2.1 1.5 3.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  {:else if name === 'density'}
+    <path d="M7 5h10l2 5-7 9-7-9 2-5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8.5 10h7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  {:else if name === 'cost'}
+    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M14.8 8.1c-.7-.7-1.5-1-2.5-1-2 0-3.5 1.7-3.5 4.8s1.5 5 3.5 5c1 0 1.8-.3 2.5-1M7.5 11h5.8M7.5 13h5.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+  {:else if name === 'weight'}
+    <path d="M7 9h10l2 10H5L7 9Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="7" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+  {:else if name === 'volume'}
+    <path d="m12 4 7 4v8l-7 4-7-4V8l7-4Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="m5 8 7 4 7-4M12 12v8" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+  {:else if name === 'caliper'}
+    <path d="M5 5v12M5 8h11M9 8v5h8M17 10v7M5 17h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  {:else if name === 'target'}
+    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/>
+  {:else if name === 'axisx'}
+    <path d="M5 18 18 5M13 5h5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 5l4 4m0-4L5 9" stroke="currentColor" stroke-width="1.3"/>
+  {:else if name === 'axisy'}
+    <path d="M12 19V5M8 9l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 5l2 3 2-3" stroke="currentColor" stroke-width="1.3"/>
+  {:else if name === 'axisz'}
+    <path d="M5 18 18 5M13 5h5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 5h5L5 9h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
   {/if}
 </svg>

@@ -3,15 +3,24 @@
   import TimingBeltTool from './tools/timing-belt/TimingBeltTool.svelte';
   import AxisScalingTool from './tools/axis-scaling/AxisScalingTool.svelte';
   import FeedsSpeedsTool from './tools/feeds-speeds/FeedsSpeedsTool.svelte';
+  import VolumetricFlowTool from './tools/volumetric-flow/VolumetricFlowTool.svelte';
+  import FilamentCostTool from './tools/filament-cost/FilamentCostTool.svelte';
+  import DimensionalCorrectionTool from './tools/dimensional-correction/DimensionalCorrectionTool.svelte';
   import BrandMark from './components/BrandMark.svelte';
   import AppIcon from './components/AppIcon.svelte';
   import type { IconName } from './components/iconTypes';
 
   let selectedTool: ToolId = 'timing-belt';
-  const categories = ['Antrieb', 'CNC'] as const;
+  const categories = ['Antrieb', 'CNC', '3D-Druck'] as const;
 
-  const toolIcon = (tool: ToolId): IconName =>
-    tool === 'timing-belt' ? 'belt' : tool === 'axis-scaling' ? 'axis' : 'feeds';
+  const toolIcon = (tool: ToolId): IconName => {
+    if (tool === 'timing-belt') return 'belt';
+    if (tool === 'axis-scaling') return 'axis';
+    if (tool === 'feeds-speeds') return 'feeds';
+    if (tool === 'volumetric-flow') return 'flow3d';
+    if (tool === 'filament-cost') return 'filament';
+    return 'caliper';
+  };
 </script>
 
 <div class="app-shell">
@@ -36,11 +45,11 @@
 
     <section class="about-card">
       <div class="about-title"><AppIcon name="info" size={19} /><strong>Über BeBlog Maker Tools</strong></div>
-      <p>Praxisnahe Rechner und Hilfsmittel für Maker, CNC und Werkstatt.</p>
+      <p>Praxisnahe Rechner und Hilfsmittel für Maker, CNC, 3D-Druck und Werkstatt.</p>
       <a href="https://blog.beblog.de/" target="_blank" rel="noreferrer">blog.beblog.de <AppIcon name="external" size={15} /></a>
     </section>
 
-    <div class="sidebar-footer"><span>0.1.0</span><span>Build 002 · UI Refinement</span></div>
+    <div class="sidebar-footer"><span>0.1.1</span><span>Build 003 · 3D Printing Essentials</span></div>
   </aside>
 
   <main class="workspace">
@@ -48,10 +57,16 @@
       <TimingBeltTool />
     {:else if selectedTool === 'axis-scaling'}
       <AxisScalingTool />
-    {:else}
+    {:else if selectedTool === 'feeds-speeds'}
       <FeedsSpeedsTool />
+    {:else if selectedTool === 'volumetric-flow'}
+      <VolumetricFlowTool />
+    {:else if selectedTool === 'filament-cost'}
+      <FilamentCostTool />
+    {:else}
+      <DimensionalCorrectionTool />
     {/if}
 
-    <footer class="workspace-footer">BeBlog Maker Tools 0.1.0 · Build 002 · <a href="https://blog.beblog.de/" target="_blank" rel="noreferrer">Bernds Maker Blog</a></footer>
+    <footer class="workspace-footer">BeBlog Maker Tools 0.1.1 · Build 003 · <a href="https://blog.beblog.de/" target="_blank" rel="noreferrer">Bernds Maker Blog</a></footer>
   </main>
 </div>

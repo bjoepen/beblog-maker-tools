@@ -351,3 +351,22 @@ a { color: inherit; }
   .formula-layout { grid-template-columns: 1fr; }
   .controller-grid { grid-template-columns: 1fr; }
 }
+
+
+/* Build 003 – 3D Printing Essentials */
+.helper-note, .formula-note { color: var(--muted); font-size: 10px; line-height: 1.5; margin: 13px 0 0; }
+.material-presets { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 13px; }
+.material-presets button { border: 1px solid var(--line); border-radius: 999px; padding: 5px 9px; background: rgba(255,255,255,.42); color: var(--muted); font-size: 9px; }
+.material-presets button:hover, .material-presets button.active { border-color: #a5b5bd; color: var(--navy); background: var(--navy-soft); }
+.dimension-table { display: grid; gap: 5px; }
+.dimension-head { display: grid; grid-template-columns: 38px 1fr 1fr; gap: 8px; color: var(--muted-2); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; padding: 0 4px 3px; }
+.dimension-axis { display: grid; grid-template-columns: 38px 1fr 1fr; gap: 8px; align-items: center; border-top: 1px solid var(--line-soft); padding: 7px 0; }
+.dimension-axis > strong { color: var(--navy); font-size: 13px; text-align: center; }
+.dimension-axis .field-row { min-height: auto; display: block; }
+.dimension-axis .field-label { display: none; }
+.dimension-axis .input-unit-group { grid-template-columns: minmax(68px, 1fr) auto; }
+@media (max-width: 980px) {
+  .dimension-head { display: none; }
+  .dimension-axis { grid-template-columns: 30px 1fr; }
+  .dimension-axis .field-row { grid-column: 2; }
+}

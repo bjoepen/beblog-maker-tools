@@ -2,6 +2,30 @@
 
 Alle relevanten Änderungen an BeBlog Maker Tools werden hier dokumentiert.
 
+## [0.1.1] – Build 003 – 3D Printing Essentials
+
+### Added
+
+- neue Kategorie `3D-Druck`
+- Volumenstrom-Rechner mit Limitbewertung und Rückrechnung der maximalen Geschwindigkeit
+- Filament-&-Kosten-Rechner mit Länge-/Gewicht-Umrechnung und editierbaren Materialdichten
+- Maßkorrektur für X/Y/Z
+- Unit Tests für alle drei neuen Berechnungsmodule
+- verbindlicher, detaillierter Git-Workflow für Build 003
+- ECR-0003 und Upgrade-Dokumentation
+
+### Changed
+
+- Produktversion auf 0.1.1 angehoben
+- Sidebar um `3D-Druck` erweitert
+- About-Text um 3D-Druck ergänzt
+
+### Preserved
+
+- Build-002-UI-Refinement
+- offizielle BeBlog-SVG aus Build 002.1
+- bestehende CNC- und Antriebsrechner
+
 ## [0.1.0] – Build 002.1 – Official Blog Logo Alignment
 
 ### Changed

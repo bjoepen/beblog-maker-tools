@@ -1,6 +1,6 @@
 [package]
 name = "beblog-maker-tools"
-version = "0.1.0"
+version = "0.1.1"
 description = "BeBlog Maker Tools"
 authors = ["Bernd Jöpen"]
 edition = "2021"

@@ -56,3 +56,12 @@ src-tauri/target/release/bundle/
 ```
 
 Signierung, Notarisierung und Apple Developer ID bleiben außerhalb des Build-002-Scopes.
+
+
+## Build 003
+
+- Version: `0.1.1`
+- Branch: `build/003-3d-printing-essentials`
+- Commit: `feat: add 3D printing essentials for build 003`
+- PR-Ziel: `main`
+- Git-Anleitung: `docs/GIT-WORKFLOW-BUILD-003.md`

@@ -19,3 +19,20 @@ Eine Kernfunktion darf keine Svelte- oder DOM-Abhängigkeit besitzen. Sie erhäl
 ## Estlcam
 
 Estlcam ist kein Alias für das Standard-Steps/mm-Profil. Das Zielsystem erhält einen eigenen Modus. Build 001 enthält nur die architektonische Trennung. Die konkrete Feldzuordnung wird vor einer späteren Implementierung fachlich verifiziert.
+
+
+## Build 003 – Erweiterung der Calculator Modules
+
+```text
+src/core/calculations/
+├── volumetricFlow.ts
+├── filamentCost.ts
+└── dimensionalCorrection.ts
+
+src/tools/
+├── volumetric-flow/
+├── filament-cost/
+└── dimensional-correction/
+```
+
+Die neuen Module folgen derselben Trennung wie die Foundation: reine TypeScript-Berechnung im Core, Svelte ausschließlich für Darstellung und Interaktion.
