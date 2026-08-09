@@ -43,3 +43,16 @@ Commit-Vorschlag:
 ```text
 feat: refine BeBlog Maker Tools UI for build 002
 ```
+
+
+## Verbindliche Branch-Regel
+
+Ab Build 003 beginnt jede Entwicklung auf aktuellem `main`:
+
+```bash
+git switch main
+git pull origin main
+git switch -c build/XXX-<name>
+```
+
+Der Build wird nach Validierung per Pull Request nach `main` gemerged. Die konkrete Schritt-für-Schritt-Anleitung liegt pro Build als `docs/GIT-WORKFLOW-BUILD-XXX.md` bei.

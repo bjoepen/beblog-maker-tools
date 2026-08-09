@@ -66,3 +66,20 @@ src-tauri/target/release/bundle/
 ## Bereitstellungsumgebung
 
 Die Erstellung dieses Repository-Pakets erfolgte ohne Netzwerkzugriff und ohne installierte pnpm-/Rust-/Tauri-Abhängigkeiten. Deshalb müssen `pnpm validate`, `cargo check` und `pnpm tauri:build` auf dem Ziel-Mac ausgeführt werden.
+
+
+## Build 003 – zusätzliche Prüfpunkte
+
+```bash
+pnpm validate
+cargo check --manifest-path src-tauri/Cargo.toml
+pnpm tauri:dev
+```
+
+Manuell zusätzlich prüfen:
+
+- Kategorie 3D-Druck mit drei Werkzeugen
+- Beispiel Volumenstrom: 0,45 × 0,20 × 150 = 13,50 mm³/s
+- bei 18 mm³/s Limit ergibt sich 200 mm/s maximale Geschwindigkeit
+- Filamentrechnung funktioniert in beiden Richtungen
+- Maßkorrektur: 20,00 / 19,80 × 100 ≈ 101,010 %

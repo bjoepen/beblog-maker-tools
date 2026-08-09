@@ -698,3 +698,33 @@ Mit dieser Spezifikation sind für BeBlog Maker Tools 0.1 – Foundation verbind
 - Definition of Done
 
 Der nächste Entwicklungsschritt ist die Erstellung des tatsächlichen Build-001-Repositories.
+
+
+---
+
+# Foundation Amendment – Build-Plan ab Build 002
+
+Die ursprünglich in Kapitel 20 skizzierte Reihenfolge war eine Planungsannahme und wurde durch freigegebene Projektentscheidungen weiterentwickelt. Die Produkt- und Architekturprinzipien der Foundation bleiben unverändert.
+
+Verbindlicher realer Build-Verlauf:
+
+```text
+Build 001
+Foundation + drei Basismodule
+
+Build 002
+UI Refinement / BeBlog Designsystem
+
+Build 002.1
+Official Blog Logo Alignment
+
+Build 003
+3D Printing Essentials
+- Volumenstrom
+- Filament & Kosten
+- Maßkorrektur
+```
+
+Neue Build-Regel:
+
+> Jeder Build wird von einem aktuellen `main` abgezweigt und ausschließlich per Pull Request nach `main` zurückgeführt. Jeder Build enthält eine konkrete `GIT-WORKFLOW-BUILD-xxx.md`.
