@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="">
+  <defs>
+    <mask id="beblog-mark-mask-primary">
+      <rect width="32" height="32" fill="white" />
+      <path d="M7.2 10.4 12.8 4.8M7.2 15.2l5.6-5.6M7.2 20l5.6-5.6" fill="none" stroke="black" stroke-width="1.8" stroke-linecap="round" />
+      <path d="M18 28v-5.2M23 27v-7.2" fill="none" stroke="black" stroke-width="1.8" stroke-linecap="round" />
+      <circle cx="18" cy="21.4" r="1.6" fill="black" />
+      <circle cx="23" cy="18.3" r="1.6" fill="black" />
+    </mask>
+  </defs>
+  <path
+    fill="#16324F"
+    fill-rule="evenodd"
+    mask="url(#beblog-mark-mask-primary)"
+    d="M7 2h6v6.4A11 11 0 1 1 7 18V2Zm6 16a6 6 0 1 0 12 0 6 6 0 0 0-12 0Z"
+  />
+</svg>

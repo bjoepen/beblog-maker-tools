@@ -63,6 +63,7 @@ a { color: inherit; }
   place-items: center;
   color: var(--navy);
 }
+.brand-symbol img { width: 100%; height: 100%; display: block; }
 .brand-copy strong { display: block; font-size: 17px; letter-spacing: -.025em; line-height: 1.15; }
 .brand-copy span { display: block; color: var(--muted); font-size: 10px; margin-top: 5px; line-height: 1.3; }
 

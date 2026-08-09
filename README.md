@@ -29,6 +29,7 @@ Build 002 konzentriert sich auf Gestaltung und Bedienbarkeit:
 - Zurücksetzen-Funktion pro Werkzeug
 - großzügiger, aufklappbarer Bereich für Berechnungsgrundlagen
 - korrekter Website-Verweis auf `blog.beblog.de`
+- offizielle SVG-Markenmarke aus dem Blog als BrandMark integriert
 - dauerhafte Aufnahme von `@types/node` für eine fehlerfreie TypeScript-Validierung
 
 Der freigegebene UI-Entwurf liegt als Referenz unter [`docs/assets/build-002-ui-reference.png`](docs/assets/build-002-ui-reference.png).

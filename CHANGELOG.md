@@ -2,6 +2,18 @@
 
 Alle relevanten Änderungen an BeBlog Maker Tools werden hier dokumentiert.
 
+## [0.1.0] – Build 002.1 – Official Blog Logo Alignment
+
+### Changed
+
+- bisherige stilisierte Markenmarke durch die originale SVG-Marke aus dem Blog ersetzt
+- BrandMark-Komponente auf das offizielle SVG unter `src/assets/beblog-mark.svg` umgestellt
+- Darstellung des Logos damit 1:1 an den BeBlog-Auftritt angeglichen
+
+### Preserved
+
+- App-Struktur, Rechenlogik und UI-Refinement aus Build 002 unverändert beibehalten
+
 ## [0.1.0] – Build 002 – UI Refinement
 
 ### Changed
