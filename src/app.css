@@ -25,7 +25,7 @@
 }
 
 * { box-sizing: border-box; }
-html, body, #app { margin: 0; width: 100%; min-width: 780px; min-height: 100vh; }
+html, body, #app { margin: 0; width: 100%; min-width: 0; min-height: 100vh; }
 body { background: var(--paper); }
 button, input, select { font: inherit; }
 button { cursor: pointer; }
@@ -369,4 +369,196 @@ a { color: inherit; }
   .dimension-head { display: none; }
   .dimension-axis { grid-template-columns: 30px 1fr; }
   .dimension-axis .field-row { grid-column: 2; }
+}
+
+
+/* Build 004 – Workshop Essentials */
+.select-row {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: #525a60;
+  font-size: 12px;
+}
+.select-row select {
+  min-width: 190px;
+  max-width: 260px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 8px 30px 8px 10px;
+  background: rgba(255,255,255,.72);
+  color: var(--ink);
+}
+.workshop-answer {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 9px;
+  border: 1px solid #d7e0e4;
+  background: var(--navy-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.workshop-answer span { color: var(--muted); font-size: 11px; }
+.workshop-answer strong { color: var(--navy); font-size: 21px; letter-spacing: -.02em; }
+.coordinate-table-wrap { overflow: auto; margin: 8px 3px 10px; max-height: 330px; border: 1px solid var(--line-soft); border-radius: 8px; }
+.coordinate-table { width: 100%; border-collapse: collapse; font-size: 11px; font-variant-numeric: tabular-nums; }
+.coordinate-table th, .coordinate-table td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--line-soft); }
+.coordinate-table th:first-child, .coordinate-table td:first-child { text-align: center; }
+.coordinate-table th { position: sticky; top: 0; background: #f3eee5; color: #505960; font-weight: 750; }
+.coordinate-table tbody tr:last-child td { border-bottom: 0; }
+.coordinate-table tbody tr:hover { background: rgba(23,62,85,.035); }
+.formula-note { color: var(--muted-2); font-size: 10px; }
+
+@media (max-width: 1160px) {
+  .select-row { align-items: flex-start; flex-direction: column; gap: 7px; }
+  .select-row select { width: 100%; max-width: none; }
+}
+
+
+/* Build 005 – Android Foundation / Mobile App Shell */
+.mobile-header, .mobile-scrim { display: none; }
+
+@media (max-width: 760px) {
+  html, body, #app { min-width: 0; min-height: 100%; }
+  body { overscroll-behavior-y: none; }
+
+  .app-shell {
+    display: block;
+    min-height: 100dvh;
+    padding-top: calc(64px + env(safe-area-inset-top));
+  }
+
+  .mobile-header {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(64px + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) 14px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(250,247,240,.97);
+    backdrop-filter: blur(12px);
+  }
+
+  .mobile-brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .mobile-brand .brand-symbol { flex: 0 0 auto; }
+  .mobile-brand > div:last-child { min-width: 0; }
+  .mobile-brand strong { display: block; font-size: 14px; line-height: 1.15; letter-spacing: -.02em; white-space: nowrap; }
+  .mobile-brand span { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .mobile-menu-button {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: rgba(255,255,255,.55);
+    display: grid;
+    place-content: center;
+    gap: 4px;
+    padding: 0;
+  }
+  .mobile-menu-button span { width: 18px; height: 2px; border-radius: 99px; background: var(--navy); display: block; }
+
+  .mobile-scrim {
+    display: block;
+    position: fixed;
+    z-index: 39;
+    inset: calc(64px + env(safe-area-inset-top)) 0 0;
+    width: 100%;
+    border: 0;
+    background: rgba(18, 28, 34, .28);
+    padding: 0;
+  }
+
+  .sidebar {
+    position: fixed;
+    z-index: 40;
+    top: calc(64px + env(safe-area-inset-top));
+    bottom: 0;
+    left: 0;
+    width: min(86vw, 330px);
+    padding: 18px 16px calc(16px + env(safe-area-inset-bottom));
+    overflow-y: auto;
+    box-shadow: 18px 0 38px rgba(34, 32, 28, .16);
+    transform: translateX(-105%);
+    transition: transform .2s ease;
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar .brand { display: none; }
+  .tool-navigation { padding-top: 0; }
+  .nav-group { margin-bottom: 18px; }
+  .nav-group button { min-height: 46px; padding: 11px 12px; }
+  .about-card { margin-top: 20px; }
+
+  .workspace {
+    width: 100%;
+    padding: 20px 14px calc(34px + env(safe-area-inset-bottom));
+    overflow: visible;
+  }
+
+  .tool-header {
+    min-height: auto;
+    margin-bottom: 16px;
+    gap: 12px;
+    align-items: center;
+  }
+  .tool-heading-group { gap: 10px; min-width: 0; }
+  .tool-heading-icon { width: 46px; height: 46px; min-width: 46px; }
+  .tool-header h1 { font-size: clamp(24px, 7vw, 30px); }
+  .tool-header p { margin-top: 5px; font-size: 11px; }
+  .reset-button { min-height: 44px; flex: 0 0 auto; padding: 9px 10px; }
+
+  .tool-grid { display: grid; grid-template-columns: 1fr; gap: 12px; width: 100%; }
+  .panel { padding: 15px 13px; border-radius: 10px; }
+  .field-row { min-height: 56px; gap: 10px; }
+  .field-label { max-width: 52%; line-height: 1.25; }
+  .input-unit-group { grid-template-columns: minmax(82px, 1fr) auto; min-width: 142px; }
+  .input-unit-group input { min-height: 44px; font-size: 16px; }
+  .unit-box { min-width: 48px; font-size: 11px; }
+
+  .result-row { min-height: 58px; gap: 10px; }
+  .result-label { max-width: 56%; }
+  .result-value strong { white-space: normal; }
+
+  .profile-switch, .segmented { max-width: 100%; overflow-x: auto; }
+  .profile-switch button, .segmented button { min-height: 40px; white-space: nowrap; }
+
+  .controller-panel, .estlcam-panel, .formula-disclosure { margin-top: 12px; }
+  .controller-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .controller-grid, .formula-layout { grid-template-columns: 1fr; }
+  .formula-disclosure summary { min-height: 48px; padding: 12px 13px; }
+  .formula-content { padding: 13px; }
+
+  .select-row { align-items: stretch; flex-direction: column; gap: 7px; }
+  .select-row select { width: 100%; max-width: none; min-height: 44px; font-size: 16px; }
+  .material-presets button { min-height: 40px; padding-left: 12px; padding-right: 12px; }
+  .coordinate-table-wrap { max-height: 48vh; }
+
+  .dimension-head { display: none; }
+  .dimension-axis { grid-template-columns: 30px 1fr; }
+  .dimension-axis .field-row { grid-column: 2; }
+
+  .workspace-footer { margin-top: 18px; padding-bottom: env(safe-area-inset-bottom); }
+}
+
+@media (max-width: 480px) {
+  .tool-header { align-items: flex-start; }
+  .tool-heading-icon { display: none; }
+  .reset-button { font-size: 0; width: 44px; justify-content: center; padding: 0; }
+  .reset-button .app-icon { width: 18px; height: 18px; }
+  .field-row { align-items: flex-start; flex-direction: column; }
+  .field-label { max-width: 100%; }
+  .input-unit-group { width: 100%; }
+  .result-row { align-items: flex-start; flex-direction: column; }
+  .result-label { max-width: 100%; }
+  .result-value { width: 100%; align-items: flex-start; text-align: left; padding-left: 32px; }
 }

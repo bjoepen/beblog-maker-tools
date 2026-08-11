@@ -74,5 +74,19 @@
     <path d="M12 19V5M8 9l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 5l2 3 2-3" stroke="currentColor" stroke-width="1.3"/>
   {:else if name === 'axisz'}
     <path d="M5 18 18 5M13 5h5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 5h5L5 9h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+  {:else if name === 'bolt'}
+    <path d="M8 4h8l2 3-2 3H8L6 7l2-3Zm4 6v10M9.5 13h5M9.5 16h5M9.5 19h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  {:else if name === 'wrench'}
+    <path d="M14.8 5.2a4.2 4.2 0 0 0-5.1 5.2L4.6 15.5a2 2 0 1 0 2.8 2.8l5.1-5.1a4.2 4.2 0 0 0 5.2-5.1l-2.4 2.4-2.2-.6-.6-2.2 2.3-2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+  {:else if name === 'thread'}
+    <path d="M5 6h14M7 9h10M5 12h14M7 15h10M5 18h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  {:else if name === 'drill'}
+    <path d="M8 4h8l-1 4 1 2-2 2 1 2-2 2 1 2-2 2-2-2 1-2-2-2 1-2-2-2 1-2-1-4Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+  {:else if name === 'hole'}
+    <circle cx="12" cy="12" r="7" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+  {:else if name === 'bolt-circle'}
+    <circle cx="12" cy="12" r="7.5" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 2"/><circle cx="12" cy="4.5" r="1.4" fill="currentColor"/><circle cx="18.5" cy="15.75" r="1.4" fill="currentColor"/><circle cx="5.5" cy="15.75" r="1.4" fill="currentColor"/>
+  {:else if name === 'angle'}
+    <path d="M5 18h14M6 18 17 7M10 18a5 5 0 0 1 1.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
   {/if}
 </svg>

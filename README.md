@@ -1,52 +1,51 @@
 # BeBlog Maker Tools
 
-> **0.1.1 · Build 003 · 3D Printing Essentials**
+> **0.2.0 · Build 005 · Android Foundation**
 
-BeBlog Maker Tools ist eine bewusst kompakte Desktop-Werkzeugsuite für Maker, CNC-Anwender, 3D-Druck und Werkstattprojekte. Build 003 erweitert die freigegebene Foundation und das BeBlog-UI um drei essentielle FDM/FFF-Rechner.
+BeBlog Maker Tools ist eine bewusst kompakte Werkzeugsuite für Maker, CNC-Anwender, 3D-Druck und Werkstattprojekte. Seit Build 005 besitzt die gleiche Tauri-/Svelte-Codebasis neben macOS auch eine Android-App-Shell.
 
 **Website:** https://blog.beblog.de/
 
-## Build 003 – 3D Printing Essentials
+## Build 005 – Android Foundation
 
-Die Suite enthält jetzt zusätzlich drei Werkzeuge für FDM/FFF-3D-Druck:
+Build 005 fügt **keine neuen Rechner** hinzu. Stattdessen wird die vorhandene Suite mobil:
 
-- **Volumenstrom** – mm³/s und maximale Druckgeschwindigkeit
+- responsive Smartphone-/Tablet-Oberfläche
+- ausfahrbare mobile Werkzeugnavigation
+- touchfreundliche Eingaben und Bedienelemente
+- Safe-Area-Unterstützung
+- Android-Paketkennung `de.beblog.makertools`
+- Android 7 / SDK 24 als Mindestbasis
+- GitHub Actions baut ein installierbares Debug-APK
+- lokales Android Studio ist für diesen CI-Build nicht erforderlich
+
+Android-Anleitung: [`docs/ANDROID-GITHUB-ACTIONS.md`](docs/ANDROID-GITHUB-ACTIONS.md)  
+Verbindlicher Git-Ablauf: [`docs/GIT-WORKFLOW-BUILD-005.md`](docs/GIT-WORKFLOW-BUILD-005.md)
+
+## Enthaltene Werkzeuge
+
+### Antrieb
+
+- **Zahnriemen** – theoretische Wirklänge, Riemenzähne und reale Wirklänge eines empfohlenen geschlossenen Zahnriemens
+
+### CNC
+
+- **Achsskalierung** – Steps/Impulse pro mm für Zahnriemen- und Spindelantriebe
+- **Drehzahl & Vorschub** – Spindeldrehzahl und Vorschub aus Schnittdaten
+
+### 3D-Druck
+
+- **Volumenstrom** – benötigter Materialfluss und maximale Druckgeschwindigkeit
 - **Filament & Kosten** – Länge, Gewicht, Volumen und Materialkosten
 - **Maßkorrektur** – X/Y/Z-Skalierung aus Soll- und Istmaßen
 
-Der verbindliche Git-Ablauf für diesen Build steht in `docs/GIT-WORKFLOW-BUILD-003.md`.
+### Werkstatt
 
-
-## Aktueller Stand
-
-Die Suite enthält sechs bewusst kleine Werkzeuge:
-
-- **Zahnriemen** – theoretische Wirklänge, Riemenzähne und reale Wirklänge eines empfohlenen geschlossenen Zahnriemens.
-- **Achsskalierung** – Steps/Impulse pro mm für Zahnriemen- und Spindelantriebe mit getrennten Ausgaben für GRBL/grblHAL und LinuxCNC.
-- **Drehzahl & Vorschub** – Grundberechnung von Spindeldrehzahl und Vorschubgeschwindigkeit.
-- **Volumenstrom** – benötigter Materialfluss, maximale Druckgeschwindigkeit und Limitauslastung.
-- **Filament & Kosten** – Umrechnung zwischen Länge und Gewicht sowie Materialkosten.
-- **Maßkorrektur** – getrennte Skalierungsfaktoren für X, Y und Z.
+- **Schrauben & Schlüsselweiten** – Werkzeug- und Bohrungs-Finder für metrische Schrauben
+- **Gewinde & Bohrungen** – Kernloch und Durchgangsbohrungen für metrische Regelgewinde
+- **Lochkreis** – gleichmäßig verteilte Bohrungen als X/Y-Koordinaten
 
 Der **Estlcam-Modus** bleibt als eigenes Zielprofil angelegt und zeigt weiterhin keine ungeprüften Übertragungswerte.
-
-## Build 002 – UI Refinement
-
-Build 002 konzentriert sich auf Gestaltung und Bedienbarkeit:
-
-- warme, helle BeBlog-Flächen statt dunkler App-Sidebar
-- dunkelblaue Markenakzente analog zum Makerblog
-- stilisiertes `b` als App-/Sidebar-Markierung
-- kompakte Werkzeugnavigation mit eigenen SVG-Symbolen
-- klarere Eingabefelder mit festen Einheiten
-- stärker strukturierte Ergebnislisten
-- Zurücksetzen-Funktion pro Werkzeug
-- großzügiger, aufklappbarer Bereich für Berechnungsgrundlagen
-- korrekter Website-Verweis auf `blog.beblog.de`
-- offizielle SVG-Markenmarke aus dem Blog als BrandMark integriert
-- dauerhafte Aufnahme von `@types/node` für eine fehlerfreie TypeScript-Validierung
-
-Der freigegebene UI-Entwurf liegt als Referenz unter [`docs/assets/build-002-ui-reference.png`](docs/assets/build-002-ui-reference.png).
 
 ## Technologie
 
@@ -56,7 +55,8 @@ Der freigegebene UI-Entwurf liegt als Referenz unter [`docs/assets/build-002-ui-
 - Rust
 - Vite
 - Vitest
-- Zielplattform zunächst: macOS
+- macOS
+- Android ab Build 005
 
 ## Schnellstart auf macOS
 
@@ -67,27 +67,13 @@ Der freigegebene UI-Entwurf liegt als Referenz unter [`docs/assets/build-002-ui-
 - Node.js 22 oder neuer
 - pnpm
 
-### Installation
-
 ```bash
-git clone https://github.com/DEIN-BENUTZERNAME/beblog-maker-tools.git
+git clone https://github.com/bjoepen/beblog-maker-tools.git
 cd beblog-maker-tools
 pnpm install
-```
-
-### Entwicklung
-
-```bash
+pnpm validate
 pnpm tauri:dev
 ```
-
-### Tests und Validierung
-
-```bash
-pnpm validate
-```
-
-Die Validierung führt nacheinander TypeScript-Check, Unit Tests und Vite-Produktionsbuild aus.
 
 ### macOS-App bauen
 
@@ -95,25 +81,41 @@ Die Validierung führt nacheinander TypeScript-Check, Unit Tests und Vite-Produk
 pnpm tauri:build
 ```
 
-Tauri legt die Bundles anschließend unter `src-tauri/target/release/bundle/` ab.
+## Android-APK ohne lokale Android-Toolchain
+
+Nach Merge von Build 005:
+
+```text
+GitHub → Actions → Android APK → Run workflow
+```
+
+Nach erfolgreichem Workflow das Artefakt
+
+```text
+BeBlog-Maker-Tools-0.2.0-Build-005-Android-Debug-APK
+```
+
+herunterladen und entpacken. Die enthaltene `.apk` kann auf einem Android-Gerät installiert werden.
+
+Build 005 verwendet bewusst ein **Debug-APK**. Ein dauerhaft signiertes Release-APK ist ein späterer Distribution-Schritt.
 
 ## Projektdokumentation
 
-- [`docs/FOUNDATION.md`](docs/FOUNDATION.md) – verbindliche Produkt- und Architekturgrundlage
-- [`docs/BUILD-001.md`](docs/BUILD-001.md) – Foundation-Build
-- [`docs/BUILD-002.md`](docs/BUILD-002.md) – UI Refinement
-- [`docs/BUILD-003.md`](docs/BUILD-003.md) – 3D Printing Essentials
-- [`docs/GIT-WORKFLOW-BUILD-003.md`](docs/GIT-WORKFLOW-BUILD-003.md) – verbindlicher Git-Ablauf
-- [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md) – BeBlog-Designsystem der App
+- [`docs/FOUNDATION.md`](docs/FOUNDATION.md) – Produkt- und Architekturgrundlage
+- [`docs/BUILD-005.md`](docs/BUILD-005.md) – Android Foundation
+- [`docs/ANDROID-GITHUB-ACTIONS.md`](docs/ANDROID-GITHUB-ACTIONS.md) – APK-Build ohne lokale Android-Toolchain
+- [`docs/GIT-WORKFLOW-BUILD-005.md`](docs/GIT-WORKFLOW-BUILD-005.md) – verbindlicher Git-Ablauf
+- [`docs/BUILD-005-VALIDATION-REPORT.md`](docs/BUILD-005-VALIDATION-REPORT.md) – Validierungsplan
+- [`docs/SOURCES-BUILD-005.md`](docs/SOURCES-BUILD-005.md) – technische Primärquellen
+- [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md) – BeBlog-Designsystem
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) – technische Struktur
-- [`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md) – lokaler Entwicklungsworkflow
-- [`docs/VALIDATION.md`](docs/VALIDATION.md) – Prüfschritte
+- [`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md) – Entwicklungsworkflow
 
 ## Entwicklungsgrundsatz
 
 > Ein Werkzeug soll eine konkrete technische Frage schnell, nachvollziehbar und praxisnah beantworten.
 
-Das UI darf hochwertiger werden – die Suite selbst bleibt bewusst schlank.
+Desktop und Mobile verwenden dieselbe fachliche Rechnerlogik.
 
 ## Lizenz
 

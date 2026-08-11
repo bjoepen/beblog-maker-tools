@@ -1,5 +1,45 @@
 # Changelog
 
+## [0.2.0] – Build 005 – Android Foundation
+
+### Added
+
+- Android als zweite Zielplattform
+- responsive mobile App-Shell mit Werkzeug-Drawer
+- Touch- und Safe-Area-Optimierungen
+- Android-Paketkennung `de.beblog.makertools`
+- Tauri Mobile Entry Point
+- GitHub-Actions-Workflow für ein installierbares Debug-APK
+- Android-/CI-/Git-Dokumentation für Build 005
+
+### Changed
+
+- Produktversion auf 0.2.0 angehoben
+- App-Beschreibung auf macOS und Android erweitert
+
+### Preserved
+
+- alle neun Rechner und deren fachliche Logik aus Build 004
+- Desktop-Sidebar und BeBlog-Branding
+
+## [0.1.2] – Build 004 – Workshop Essentials
+
+### Added
+
+- neue Kategorie `Werkstatt`
+- Schrauben- & Schlüsselweiten-Finder für metrische Größen M3–M16
+- ISO-4014/4017-Sechskantwerte und ISO-4762-Innensechskantwerte
+- Gewinde-/Bohrungs-Nachschlagewerk mit Kernloch sowie feinen, normalen und groben Durchgangsbohrungen
+- Lochkreisrechner mit Startwinkel, Mittelpunktversatz und vollständiger X/Y-Koordinatentabelle
+- Unit Tests für Referenzdaten und Lochkreisgeometrie
+- verbindlicher Git-Workflow für Build 004
+
+### Changed
+
+- Produktversion auf 0.1.2 angehoben
+- Tool Registry und Sidebar um `Werkstatt` erweitert
+
+
 Alle relevanten Änderungen an BeBlog Maker Tools werden hier dokumentiert.
 
 ## [0.1.1] – Build 003 – 3D Printing Essentials
