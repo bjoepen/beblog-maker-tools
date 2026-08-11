@@ -1,0 +1,81 @@
+name: macOS App
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'src-tauri/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'vite.config.ts'
+      - '.github/workflows/macos-app.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-macos:
+    name: Build unsigned macOS app and DMG
+    runs-on: macos-14
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install JavaScript dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Validate shared application
+        run: pnpm validate
+
+      - name: Check Rust backend
+        run: cargo check --manifest-path src-tauri/Cargo.toml
+
+      - name: Build unsigned macOS app and DMG
+        run: pnpm tauri build --bundles app,dmg
+
+      - name: Locate generated bundles
+        shell: bash
+        run: |
+          set -euo pipefail
+          APP_PATH="$(find src-tauri/target/release/bundle/macos -maxdepth 1 -type d -name '*.app' -print -quit)"
+          DMG_PATH="$(find src-tauri/target/release/bundle/dmg -maxdepth 1 -type f -name '*.dmg' -print -quit)"
+          test -n "$APP_PATH"
+          test -n "$DMG_PATH"
+          echo "APP_PATH=$APP_PATH" >> "$GITHUB_ENV"
+          echo "DMG_PATH=$DMG_PATH" >> "$GITHUB_ENV"
+          echo "App bundle: $APP_PATH"
+          echo "DMG: $DMG_PATH"
+
+      - name: Package app bundle safely
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" \
+            "artifacts/BeBlog-Maker-Tools-0.2.1-Build-006-macOS-App.zip"
+          cp "$DMG_PATH" "artifacts/BeBlog-Maker-Tools-0.2.1-Build-006-macOS.dmg"
+
+      - name: Upload macOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: BeBlog-Maker-Tools-0.2.1-Build-006-macOS
+          path: artifacts/*
+          if-no-files-found: error
+          retention-days: 30
