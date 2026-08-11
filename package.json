@@ -1,8 +1,8 @@
 {
   "name": "beblog-maker-tools",
   "private": true,
-  "version": "0.1.2",
-  "description": "Kompakte macOS-Werkzeugsuite für Maker, CNC und Werkstatt.",
+  "version": "0.2.0",
+  "description": "Kompakte Maker- und Werkzeugsuite für macOS und Android.",
   "type": "module",
   "scripts": {
     "dev": "vite --port 1420",
@@ -14,7 +14,10 @@
     "tauri": "tauri",
     "tauri:dev": "tauri dev",
     "tauri:build": "tauri build",
-    "validate": "pnpm check && pnpm test && pnpm build"
+    "validate": "pnpm check && pnpm test && pnpm build",
+    "android:init": "tauri android init",
+    "android:build:debug": "tauri android build --debug --apk",
+    "android:build": "tauri android build --apk"
   },
   "dependencies": {
     "@tauri-apps/api": "2.11.1",

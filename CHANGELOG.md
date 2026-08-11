@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.2.0] – Build 005 – Android Foundation
+
+### Added
+
+- Android als zweite Zielplattform
+- responsive mobile App-Shell mit Werkzeug-Drawer
+- Touch- und Safe-Area-Optimierungen
+- Android-Paketkennung `de.beblog.makertools`
+- Tauri Mobile Entry Point
+- GitHub-Actions-Workflow für ein installierbares Debug-APK
+- Android-/CI-/Git-Dokumentation für Build 005
+
+### Changed
+
+- Produktversion auf 0.2.0 angehoben
+- App-Beschreibung auf macOS und Android erweitert
+
+### Preserved
+
+- alle neun Rechner und deren fachliche Logik aus Build 004
+- Desktop-Sidebar und BeBlog-Branding
 
 ## [0.1.2] – Build 004 – Workshop Essentials
 

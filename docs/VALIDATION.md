@@ -95,3 +95,15 @@ Manuell zusätzlich prüfen:
 - Lochkreis: Ø80 mm / 4 Bohrungen / 0° → (40,0), (0,40), (-40,0), (0,-40)
 - Wechsel zwischen allen neun Werkzeugen ohne Fehler
 - Sidebar bleibt bei Standardfensterhöhe bedienbar
+
+
+## Build 005 – Android
+
+Shared-/Desktop-Validierung:
+
+```bash
+pnpm validate
+cargo check --manifest-path src-tauri/Cargo.toml
+```
+
+Android wird verbindlich über `.github/workflows/android-apk.yml` validiert. Nach Merge muss mindestens ein manueller Workflow-Lauf erfolgreich sein und eine installierbare APK erzeugen. Siehe `BUILD-005-VALIDATION-REPORT.md`.

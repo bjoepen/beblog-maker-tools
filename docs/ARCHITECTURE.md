@@ -36,3 +36,8 @@ src/tools/
 ```
 
 Die neuen Module folgen derselben Trennung wie die Foundation: reine TypeScript-Berechnung im Core, Svelte ausschließlich für Darstellung und Interaktion.
+
+
+## Android Foundation (Build 005)
+
+Desktop und Android verwenden dieselben Svelte-Komponenten, dieselbe Tool Registry und dieselbe TypeScript-Rechenlogik. Die Plattformunterscheidung liegt primär in der responsiven App-Shell und im Tauri-Buildziel. Android wird über `tauri android init/build` erzeugt; das generierte `src-tauri/gen/` bleibt Build-Artefakt und ist weiterhin gitignored.

@@ -71,3 +71,10 @@ src-tauri/target/release/bundle/
 ## Hinweis zur Signierung
 
 Build 002 setzt weiterhin keine Apple Developer ID voraus. Lokal erzeugte öffentliche Downloads können von macOS/Gatekeeper daher als unsigniert behandelt werden.
+
+
+## Android über GitHub Actions – Build 005
+
+Für den vorgesehenen Android-CI-Build müssen auf dem Mac weder Android Studio noch SDK/NDK installiert werden. Nach Merge nach `main` im GitHub-Repository `Actions → Android APK → Run workflow` öffnen. Nach erfolgreichem Lauf das APK-Artefakt herunterladen und entpacken.
+
+Details: `docs/ANDROID-GITHUB-ACTIONS.md`.
