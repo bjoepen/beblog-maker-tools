@@ -46,3 +46,16 @@ Erwartung:
 - vorhandene neun Tools sind erreichbar
 
 Der reale Android-Build kann in dieser Lieferumgebung nicht ausgeführt werden. GitHub Actions ist der verbindliche Android-Build- und Validierungspunkt für Build 005.
+
+## Nachträgliche Praxisvalidierung – 11.08.2026
+
+Der Android-Meilenstein wurde auf realer Hardware erfolgreich bestätigt:
+
+- [x] APK über GitHub Actions erzeugt
+- [x] Installation auf realem Android-Gerät
+- [x] App startet fehlerfrei
+- [x] Werkzeuge bedienbar
+- [x] Tablet-Layout visuell geprüft
+- [x] Responsive Navigation funktioniert
+
+**Ergebnis: Build 005 = GO / praktisch validiert.**

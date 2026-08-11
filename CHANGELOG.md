@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.2.1] – Build 006 – Motor & Treiber
+
+### Added
+- neues CNC-Werkzeug „Motor & Treiber“
+- PASS/WARN/FAIL-Kompatibilitätsbewertung
+- RMS-/Peak-Normalisierung und Herstellerprofile für ausgewählte STEPPERONLINE-DM-Treiber
+- Unit-Tests und Build-006-Dokumentation
+
+### Changed
+- Versionsangabe nur noch einmal in der Oberfläche
+- Footer auf „Entwickelt mit ❤️ für Maker“ umgestellt
+- rsync als verbindlicher Upgrade-Standard dokumentiert
+- Build 005 nach erfolgreichem Android-/Tablet-Praxistest als GO dokumentiert
+
 ## [0.2.0] – Build 005 – Android Foundation
 
 ### Added

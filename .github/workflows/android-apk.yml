@@ -66,7 +66,7 @@ jobs:
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: BeBlog-Maker-Tools-0.2.0-Build-005-Android-Debug-APK
+          name: BeBlog-Maker-Tools-0.2.1-Build-006-Android-Debug-APK
           path: src-tauri/gen/android/app/build/outputs/apk/**/*.apk
           if-no-files-found: error
           retention-days: 30

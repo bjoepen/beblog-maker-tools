@@ -79,3 +79,11 @@ Signierung, Notarisierung und Apple Developer ID bleiben außerhalb des Build-00
 ## Build 005 / 0.2.0
 
 Android Foundation. Das erste Android-Artefakt ist ein GitHub-Actions-Debug-APK für Test und persönlichen Werkstatteinsatz. Ein stabil signiertes Release-APK wird erst nach Einrichtung eines privaten Android-Keystores ausgeliefert.
+
+
+## Build 006 / 0.2.1
+
+Branch: `build/006-motor-driver-compatibility`  
+Commit: `feat: add motor driver compatibility for build 006`
+
+Release-Schwerpunkt: Motor-/Treiber-Kompatibilität, UI-Bereinigung und rsync-Upgrade-Workflow.
