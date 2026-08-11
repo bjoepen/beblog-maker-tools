@@ -38,6 +38,10 @@
     <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5"/><path d="m8.2 12.1 2.3 2.3 5.2-5.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
   {:else if name === 'delta'}
     <path d="m12 4 7.5 15H4.5L12 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+  {:else if name === 'driver'}
+    <rect x="4.5" y="5" width="15" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 9h8M8 12h5M8 15h8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M7 3.5v2M12 3.5v2M17 3.5v2M7 19v1.5M12 19v1.5M17 19v1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+  {:else if name === 'current'}
+    <path d="M13.4 3.5 7.8 12h4.1l-1.3 8.5 5.6-9h-4.1l1.3-8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
   {:else if name === 'motor'}
     <rect x="5" y="6.5" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="10.5" cy="12" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M16 10h3v4h-3M7.5 6.5V4.7m6 1.8V4.7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
   {:else if name === 'spindle'}

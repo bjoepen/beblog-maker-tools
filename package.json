@@ -1,7 +1,7 @@
 {
   "name": "beblog-maker-tools",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Kompakte Maker- und Werkzeugsuite für macOS und Android.",
   "type": "module",
   "scripts": {

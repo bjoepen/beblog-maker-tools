@@ -1,10 +1,17 @@
 # BeBlog Maker Tools
 
-> **0.2.0 · Build 005 · Android Foundation**
+> **0.2.1 · Build 006 · Motor & Treiber**
 
 BeBlog Maker Tools ist eine bewusst kompakte Werkzeugsuite für Maker, CNC-Anwender, 3D-Druck und Werkstattprojekte. Seit Build 005 besitzt die gleiche Tauri-/Svelte-Codebasis neben macOS auch eine Android-App-Shell.
 
 **Website:** https://blog.beblog.de/
+
+
+## Build 006 – Motor & Treiber
+
+Build 006 ergänzt das CNC-Werkzeug **Motor & Treiber**. Es bewertet Motor-Nennstrom, Treiberbereich und gewählte Stromstufe mit **PASS / WARN / FAIL**, unterstützt RMS-/Peak-Angaben und enthält verifizierte STEPPERONLINE-Profile für ausgewählte DM-Treiber.
+
+Zusätzlich wurde die Oberfläche bereinigt: Die Version erscheint nur noch einmal, der Footer lautet **„Entwickelt mit ❤️ für Maker“**. Der Upgrade-Workflow nutzt künftig `rsync`, damit versteckte Dateien wie `.github/` zuverlässig übernommen werden.
 
 ## Build 005 – Android Foundation
 
@@ -83,7 +90,7 @@ pnpm tauri:build
 
 ## Android-APK ohne lokale Android-Toolchain
 
-Nach Merge von Build 005:
+Nach Merge des aktuellen Builds:
 
 ```text
 GitHub → Actions → Android APK → Run workflow
@@ -92,21 +99,24 @@ GitHub → Actions → Android APK → Run workflow
 Nach erfolgreichem Workflow das Artefakt
 
 ```text
-BeBlog-Maker-Tools-0.2.0-Build-005-Android-Debug-APK
+BeBlog-Maker-Tools-0.2.1-Build-006-Android-Debug-APK
 ```
 
 herunterladen und entpacken. Die enthaltene `.apk` kann auf einem Android-Gerät installiert werden.
 
-Build 005 verwendet bewusst ein **Debug-APK**. Ein dauerhaft signiertes Release-APK ist ein späterer Distribution-Schritt.
+Der Android-Workflow verwendet weiterhin bewusst ein **Debug-APK**. Ein dauerhaft signiertes Release-APK ist ein späterer Distribution-Schritt.
 
 ## Projektdokumentation
 
 - [`docs/FOUNDATION.md`](docs/FOUNDATION.md) – Produkt- und Architekturgrundlage
+- [`docs/BUILD-006.md`](docs/BUILD-006.md) – Motor & Treiber
 - [`docs/BUILD-005.md`](docs/BUILD-005.md) – Android Foundation
 - [`docs/ANDROID-GITHUB-ACTIONS.md`](docs/ANDROID-GITHUB-ACTIONS.md) – APK-Build ohne lokale Android-Toolchain
-- [`docs/GIT-WORKFLOW-BUILD-005.md`](docs/GIT-WORKFLOW-BUILD-005.md) – verbindlicher Git-Ablauf
-- [`docs/BUILD-005-VALIDATION-REPORT.md`](docs/BUILD-005-VALIDATION-REPORT.md) – Validierungsplan
-- [`docs/SOURCES-BUILD-005.md`](docs/SOURCES-BUILD-005.md) – technische Primärquellen
+- [`docs/GIT-WORKFLOW-BUILD-006.md`](docs/GIT-WORKFLOW-BUILD-006.md) – verbindlicher Git-/rsync-Ablauf
+- [`docs/BUILD-006-VALIDATION-REPORT.md`](docs/BUILD-006-VALIDATION-REPORT.md) – Validierungsplan
+- [`docs/BUILD-005-VALIDATION-REPORT.md`](docs/BUILD-005-VALIDATION-REPORT.md) – Android-Praxisvalidierung
+- [`docs/SOURCES-BUILD-006.md`](docs/SOURCES-BUILD-006.md) – Motor-/Treiber-Primärquellen
+- [`docs/SOURCES-BUILD-005.md`](docs/SOURCES-BUILD-005.md) – Android-Primärquellen
 - [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md) – BeBlog-Designsystem
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) – technische Struktur
 - [`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md) – Entwicklungsworkflow

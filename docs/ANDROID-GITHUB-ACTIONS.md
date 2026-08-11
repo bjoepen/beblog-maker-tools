@@ -30,7 +30,7 @@ Der Workflow verwendet einen GitHub-gehosteten Ubuntu-24.04-Runner. Die offiziel
 Artefaktname:
 
 ```text
-BeBlog-Maker-Tools-0.2.0-Build-005-Android-Debug-APK
+BeBlog-Maker-Tools-0.2.1-Build-006-Android-Debug-APK
 ```
 
 GitHub verpackt Workflow-Artefakte beim Download als ZIP. Nach dem Entpacken liegt darin die Android-APK.

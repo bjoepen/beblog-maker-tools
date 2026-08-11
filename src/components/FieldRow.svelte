@@ -6,12 +6,13 @@
   export let unit = '';
   export let icon: IconName = 'ruler';
   export let inputMode: 'decimal' | 'numeric' = 'decimal';
+  export let readOnly = false;
 </script>
 
 <label class="field-row">
   <span class="field-label"><span class="field-icon"><AppIcon name={icon} size={20} /></span>{label}</span>
   <span class="input-unit-group">
-    <input bind:value {inputMode} aria-label={label} />
+    <input bind:value {inputMode} aria-label={label} readonly={readOnly} />
     {#if unit}<span class="unit-box">{unit}</span>{/if}
   </span>
 </label>

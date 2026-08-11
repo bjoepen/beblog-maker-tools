@@ -107,3 +107,21 @@ cargo check --manifest-path src-tauri/Cargo.toml
 ```
 
 Android wird verbindlich über `.github/workflows/android-apk.yml` validiert. Nach Merge muss mindestens ein manueller Workflow-Lauf erfolgreich sein und eine installierbare APK erzeugen. Siehe `BUILD-005-VALIDATION-REPORT.md`.
+
+
+## Build 006 – Motor & Treiber
+
+Zusätzlich prüfen:
+
+```bash
+pnpm validate
+cargo check --manifest-path src-tauri/Cargo.toml
+```
+
+Fachliche Smoke-Tests:
+- 2,0 A Motor / 2,0 A RMS gewählt → PASS
+- Treiber max. deutlich unter Motorstrom → WARN
+- Treiber min. über Motor-Nennstrom → FAIL
+- Peak-Modus zeigt plausibel normalisierten RMS-Wert
+- Version nur einmal sichtbar
+- Footer „Entwickelt mit ❤️ für Maker“
