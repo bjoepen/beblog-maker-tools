@@ -645,3 +645,14 @@ a { color: inherit; }
   background: rgba(240,236,229,.55);
   cursor: default;
 }
+
+/* Build 006 Drop-in – Stecktreiber-Erweiterung */
+.profile-caution {
+  border-left: 2px solid currentColor;
+  padding-left: 0.7rem;
+  opacity: 0.82;
+}
+
+.cooling-segment {
+  flex-wrap: wrap;
+}

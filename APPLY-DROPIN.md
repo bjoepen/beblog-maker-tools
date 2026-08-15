@@ -1,20 +1,34 @@
-# Build 006 – macOS GitHub Actions Drop-in anwenden
+# Build 006 – Stepper Driver Library Extension
 
-Dieser Ordner ist absichtlich direkt als `beblog-maker-tools/` strukturiert und kann mit `rsync` in das lokale Repository eingespielt werden.
+Dieser Drop-in erweitert **Motor & Treiber** um verbreitete Stecktreiber-/StepStick-Profile, ohne die Produktversion `0.2.1` zu ändern.
 
-## Quelle
+## Enthalten
+
+- DRV8825 – Pololu High Current Carrier als Referenzprofil
+- A4988 – Pololu Standard Carrier
+- A4988 – Pololu Black Edition
+- TMC2208 – ADI/TRINAMIC Referenz
+- TMC2209 – ADI/TRINAMIC Referenz
+- getrennte Darstellung externer Treiber und Stecktreiber
+- Kühlungsoptionen für verifizierte Carrier-Grenzen
+- VREF-Hilfe nur für konkret dokumentierte Pololu-Carrier
+- zusätzliche Unit-Tests
+
+## Einspielen
+
+Der entpackte Ordner liegt wie vereinbart unter:
 
 ```text
 ~/Downloads/beblog-maker-tools/
 ```
 
-## Ziel
+Das lokale Repository liegt unter:
 
 ```text
 ~/Projekte/beblog-maker-tools/
 ```
 
-## Dry Run
+Dry Run:
 
 ```bash
 rsync -avn \
@@ -23,7 +37,7 @@ rsync -avn \
   ~/Projekte/beblog-maker-tools/
 ```
 
-## Apply
+Anwenden:
 
 ```bash
 rsync -av \
@@ -32,4 +46,4 @@ rsync -av \
   ~/Projekte/beblog-maker-tools/
 ```
 
-Danach unbedingt `git status`, `git diff`, `pnpm validate` und den Rust-Check ausführen. Der vollständige Ablauf steht unter `docs/UPGRADE-BUILD-006-MACOS-DROPIN.md`.
+Danach gemäß `docs/GIT-WORKFLOW-BUILD-006-STEPPER-DRIVER-DROPIN.md` validieren und committen.
