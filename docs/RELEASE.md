@@ -87,3 +87,13 @@ Branch: `build/006-motor-driver-compatibility`
 Commit: `feat: add motor driver compatibility for build 006`
 
 Release-Schwerpunkt: Motor-/Treiber-Kompatibilität, UI-Bereinigung und rsync-Upgrade-Workflow.
+
+
+## Build 007 / 0.2.2
+
+Build 007 ergänzt die eigenständige Estlcam-Achsberechnung. Nach Merge nach `main` werden die bestehenden Android- und macOS-GitHub-Actions-Workflows verwendet.
+
+Aktuelle Artefakte:
+
+- `BeBlog-Maker-Tools-0.2.2-Build-007-Android-Debug-APK`
+- `BeBlog-Maker-Tools-0.2.2-Build-007-macOS`

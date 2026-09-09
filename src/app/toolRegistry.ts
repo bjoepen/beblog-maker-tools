@@ -2,7 +2,7 @@ export type ToolCategory = 'Antrieb' | 'CNC' | '3D-Druck' | 'Werkstatt';
 export type ToolId =
   | 'timing-belt' | 'axis-scaling' | 'feeds-speeds'
   | 'volumetric-flow' | 'filament-cost' | 'dimensional-correction'
-  | 'fastener-finder' | 'thread-drill' | 'bolt-circle' | 'motor-driver';
+  | 'fastener-finder' | 'thread-drill' | 'bolt-circle' | 'motor-driver' | 'estlcam-axis';
 
 export interface ToolDefinition {
   id: ToolId;
@@ -13,7 +13,8 @@ export interface ToolDefinition {
 
 export const TOOL_DEFINITIONS: ToolDefinition[] = [
   { id: 'timing-belt', title: 'Zahnriemen', category: 'Antrieb', description: 'Wirklänge und passende Riemenzähne berechnen.' },
-  { id: 'axis-scaling', title: 'Achsskalierung', category: 'CNC', description: 'Steps/mm für Riemen- und Spindelantriebe.' },
+  { id: 'axis-scaling', title: 'Achsskalierung', category: 'CNC', description: 'Steps/mm für GRBL, grblHAL und LinuxCNC.' },
+  { id: 'estlcam-axis', title: 'Estlcam Achsberechnung', category: 'CNC', description: 'Schritte je Umdrehung, Weg je Umdrehung und Verfahrweg-Kalibrierung für Estlcam.' },
   { id: 'feeds-speeds', title: 'Drehzahl & Vorschub', category: 'CNC', description: 'Drehzahl und Vorschub aus Schnittdaten ableiten.' },
   { id: 'motor-driver', title: 'Motor & Treiber', category: 'CNC', description: 'Motor-Nennstrom, Treiberbereich und gewählte Stromstufe bewerten.' },
   { id: 'volumetric-flow', title: 'Volumenstrom', category: '3D-Druck', description: 'Materialfluss und maximale Druckgeschwindigkeit abschätzen.' },

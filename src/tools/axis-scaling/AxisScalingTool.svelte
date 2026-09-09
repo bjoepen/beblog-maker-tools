@@ -7,7 +7,6 @@
   import { parseDecimal, formatNumber } from '../../core/formatting/numbers';
 
   let driveType: 'belt' | 'spindle' = 'belt';
-  let outputProfile: 'standard' | 'estlcam' = 'standard';
   let axis = 'X';
   let steps = '200';
   let microstepping = '16';
@@ -16,7 +15,7 @@
   let lead = '5';
 
   function reset() {
-    driveType = 'belt'; outputProfile = 'standard'; axis = 'X'; steps = '200'; microstepping = '16'; pitch = '3'; pulleyTeeth = '20'; lead = '5';
+    driveType = 'belt'; axis = 'X'; steps = '200'; microstepping = '16'; pitch = '3'; pulleyTeeth = '20'; lead = '5';
   }
 
   $: motorSteps = parseDecimal(steps);
@@ -29,12 +28,7 @@
   $: result = valid ? calculateAxisScaling({ fullStepsPerRevolution: motorSteps, microstepping: micro, drive }) : null;
 </script>
 
-<ToolHeader title="Achsskalierung" description="Physikalische Achsskalierung mit getrennten Ausgabeprofilen für CNC-Steuerungen." icon="axis" onReset={reset} />
-
-<div class="profile-switch" aria-label="Ausgabeprofil">
-  <button class:active={outputProfile === 'standard'} on:click={() => outputProfile = 'standard'}>GRBL / grblHAL / LinuxCNC</button>
-  <button class:active={outputProfile === 'estlcam'} on:click={() => outputProfile = 'estlcam'}>Estlcam</button>
-</div>
+<ToolHeader title="Achsskalierung" description="Steps/mm für GRBL, grblHAL und LinuxCNC aus Motor und Mechanik berechnen." icon="axis" onReset={reset} />
 
 <div class="tool-grid">
   <section class="panel">
@@ -67,25 +61,16 @@
   </section>
 </div>
 
-{#if outputProfile === 'standard'}
-  <section class="panel controller-panel">
-    <div class="controller-heading">
-      <div><p class="eyebrow">Zielsysteme</p><h2>Direkt übertragbare Einstellwerte</h2></div>
-      <label class="axis-select">Achse <select bind:value={axis}><option>X</option><option>Y</option><option>Z</option><option>A</option></select></label>
-    </div>
-    <div class="controller-grid">
-      <div><h3>GRBL / grblHAL</h3><code>${axis === 'X' ? '100' : axis === 'Y' ? '101' : axis === 'Z' ? '102' : '10x'} = {result ? result.stepsPerMillimeter.toFixed(6) : '—'}</code></div>
-      <div><h3>LinuxCNC</h3><code>STEP_SCALE = {result ? result.stepsPerMillimeter.toFixed(6) : '—'}<br />position-scale = {result ? result.stepsPerMillimeter.toFixed(6) : '—'}</code></div>
-    </div>
-  </section>
-{:else}
-  <section class="panel estlcam-panel">
-    <p class="eyebrow">Eigenes Zielprofil</p>
-    <h2>Estlcam</h2>
-    <p>Der Estlcam-Modus bleibt bewusst getrennt. Build 002 verändert die fachliche Foundation nicht und zeigt noch keine ungeprüften Übertragungswerte an.</p>
-    <p class="status-note"><strong>Verifikationspunkt:</strong> Die realen Estlcam-Eingabefelder und deren Rechenlogik werden vor der funktionalen Freigabe separat geprüft.</p>
-  </section>
-{/if}
+<section class="panel controller-panel">
+  <div class="controller-heading">
+    <div><p class="eyebrow">Zielsysteme</p><h2>Direkt übertragbare Einstellwerte</h2></div>
+    <label class="axis-select">Achse <select bind:value={axis}><option>X</option><option>Y</option><option>Z</option><option>A</option></select></label>
+  </div>
+  <div class="controller-grid">
+    <div><h3>GRBL / grblHAL</h3><code>${axis === 'X' ? '100' : axis === 'Y' ? '101' : axis === 'Z' ? '102' : '10x'} = {result ? result.stepsPerMillimeter.toFixed(6) : '—'}</code></div>
+    <div><h3>LinuxCNC</h3><code>STEP_SCALE = {result ? result.stepsPerMillimeter.toFixed(6) : '—'}<br />position-scale = {result ? result.stepsPerMillimeter.toFixed(6) : '—'}</code></div>
+  </div>
+</section>
 
 <FormulaDisclosure>
   <div class="formula-layout single">

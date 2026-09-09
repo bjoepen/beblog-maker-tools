@@ -1,17 +1,32 @@
 # BeBlog Maker Tools
 
-> **0.2.1 · Build 006 · Motor & Treiber**
+> **0.2.2 · Build 007 · Estlcam Essentials**
 
 BeBlog Maker Tools ist eine bewusst kompakte Werkzeugsuite für Maker, CNC-Anwender, 3D-Druck und Werkstattprojekte. Seit Build 005 besitzt die gleiche Tauri-/Svelte-Codebasis neben macOS auch eine Android-App-Shell.
 
 **Website:** https://blog.beblog.de/
 
 
+## Build 007 – Estlcam Essentials
+
+Build 007 macht Estlcam zu einem **eigenständigen CNC-Werkzeug** statt zu einem bloßen Ausgabeprofil der allgemeinen Achsskalierung.
+
+Neu sind:
+
+- direkte Berechnung von **„Schritte je Umdrehung“**
+- direkte Berechnung von **„Weg je Umdrehung“**
+- Zahnriemen- und Spindelantrieb
+- X/Y/Z-Auswahl als Eingabehilfe
+- Kontrollwert Steps/mm und theoretische Wegauflösung
+- Kalibrierung des Verfahrwegs über Sollweg und gemessenen Istweg
+- klarer Estlcam-11-Pfad: `Einstellungen → CNC Steuerung → Steuerung`
+- Hinweis, Änderungen anschließend mit **„Steuerung programmieren“** zu übernehmen
+
 ## Build 006 – Motor & Treiber
 
-Build 006 ergänzt das CNC-Werkzeug **Motor & Treiber**. Es bewertet Motor-Nennstrom, Treiberbereich und gewählte Stromstufe mit **PASS / WARN / FAIL**, unterstützt RMS-/Peak-Angaben und enthält verifizierte STEPPERONLINE-Profile für ausgewählte DM-Treiber.
+Build 006 ergänzt das CNC-Werkzeug **Motor & Treiber**. Es bewertet Motor-Nennstrom, Treiberbereich und gewählte Stromstufe mit **PASS / WARN / FAIL**, unterstützt RMS-/Peak-Angaben und wurde per Drop-in um gängige Stecktreiber ergänzt.
 
-Zusätzlich wurde die Oberfläche bereinigt: Die Version erscheint nur noch einmal, der Footer lautet **„Entwickelt mit ❤️ für Maker“**. Der Upgrade-Workflow nutzt künftig `rsync`, damit versteckte Dateien wie `.github/` zuverlässig übernommen werden.
+Zusätzlich wurde die Oberfläche bereinigt: Die Version erscheint nur noch einmal, der Footer lautet **„Entwickelt mit ❤️ für Maker“**. Der Upgrade-Workflow nutzt `rsync`, damit versteckte Dateien wie `.github/` zuverlässig übernommen werden.
 
 ## Build 005 – Android Foundation
 
@@ -37,8 +52,10 @@ Verbindlicher Git-Ablauf: [`docs/GIT-WORKFLOW-BUILD-005.md`](docs/GIT-WORKFLOW-B
 
 ### CNC
 
-- **Achsskalierung** – Steps/Impulse pro mm für Zahnriemen- und Spindelantriebe
+- **Achsskalierung** – Steps/Impulse pro mm für GRBL, grblHAL und LinuxCNC
+- **Estlcam Achsberechnung** – Schritte je Umdrehung, Weg je Umdrehung und Verfahrweg-Kalibrierung
 - **Drehzahl & Vorschub** – Spindeldrehzahl und Vorschub aus Schnittdaten
+- **Motor & Treiber** – Kompatibilitätsbewertung für externe und Stecktreiber
 
 ### 3D-Druck
 
@@ -52,7 +69,6 @@ Verbindlicher Git-Ablauf: [`docs/GIT-WORKFLOW-BUILD-005.md`](docs/GIT-WORKFLOW-B
 - **Gewinde & Bohrungen** – Kernloch und Durchgangsbohrungen für metrische Regelgewinde
 - **Lochkreis** – gleichmäßig verteilte Bohrungen als X/Y-Koordinaten
 
-Der **Estlcam-Modus** bleibt als eigenes Zielprofil angelegt und zeigt weiterhin keine ungeprüften Übertragungswerte.
 
 ## Technologie
 
@@ -99,7 +115,7 @@ GitHub → Actions → Android APK → Run workflow
 Nach erfolgreichem Workflow das Artefakt
 
 ```text
-BeBlog-Maker-Tools-0.2.1-Build-006-Android-Debug-APK
+BeBlog-Maker-Tools-0.2.2-Build-007-Android-Debug-APK
 ```
 
 herunterladen und entpacken. Die enthaltene `.apk` kann auf einem Android-Gerät installiert werden.
@@ -109,12 +125,16 @@ Der Android-Workflow verwendet weiterhin bewusst ein **Debug-APK**. Ein dauerhaf
 ## Projektdokumentation
 
 - [`docs/FOUNDATION.md`](docs/FOUNDATION.md) – Produkt- und Architekturgrundlage
+- [`docs/BUILD-007.md`](docs/BUILD-007.md) – Estlcam Essentials
 - [`docs/BUILD-006.md`](docs/BUILD-006.md) – Motor & Treiber
 - [`docs/BUILD-005.md`](docs/BUILD-005.md) – Android Foundation
 - [`docs/ANDROID-GITHUB-ACTIONS.md`](docs/ANDROID-GITHUB-ACTIONS.md) – APK-Build ohne lokale Android-Toolchain
-- [`docs/GIT-WORKFLOW-BUILD-006.md`](docs/GIT-WORKFLOW-BUILD-006.md) – verbindlicher Git-/rsync-Ablauf
+- [`docs/GIT-WORKFLOW-BUILD-007.md`](docs/GIT-WORKFLOW-BUILD-007.md) – verbindlicher Git-/rsync-Ablauf
+- [`docs/UPGRADE-BUILD-007.md`](docs/UPGRADE-BUILD-007.md) – Build 007 einspielen
+- [`docs/BUILD-007-VALIDATION-REPORT.md`](docs/BUILD-007-VALIDATION-REPORT.md) – Validierungsplan
 - [`docs/BUILD-006-VALIDATION-REPORT.md`](docs/BUILD-006-VALIDATION-REPORT.md) – Validierungsplan
 - [`docs/BUILD-005-VALIDATION-REPORT.md`](docs/BUILD-005-VALIDATION-REPORT.md) – Android-Praxisvalidierung
+- [`docs/SOURCES-BUILD-007.md`](docs/SOURCES-BUILD-007.md) – Estlcam-Quellen
 - [`docs/SOURCES-BUILD-006.md`](docs/SOURCES-BUILD-006.md) – Motor-/Treiber-Primärquellen
 - [`docs/SOURCES-BUILD-005.md`](docs/SOURCES-BUILD-005.md) – Android-Primärquellen
 - [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md) – BeBlog-Designsystem

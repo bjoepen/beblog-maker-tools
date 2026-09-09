@@ -656,3 +656,33 @@ a { color: inherit; }
 .cooling-segment {
   flex-wrap: wrap;
 }
+
+/* Build 007 – eigenständige Estlcam-Achsberechnung */
+.estlcam-entry-panel,
+.calibration-panel { margin-top: 14px; }
+.calibration-toggle {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255,255,255,.55);
+  color: var(--navy);
+  padding: 8px 11px;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.calibration-toggle.active {
+  border-color: #9bb0bb;
+  background: rgba(23,62,85,.08);
+}
+.calibration-grid { margin-top: 10px; }
+.calibration-result { margin-top: 12px; }
+.estlcam-entry-panel code {
+  display: block;
+  white-space: normal;
+  line-height: 1.7;
+}
+@media (max-width: 760px) {
+  .calibration-panel .panel-heading-row { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .calibration-toggle { min-height: 42px; }
+}
