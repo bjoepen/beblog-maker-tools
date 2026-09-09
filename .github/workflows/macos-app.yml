@@ -69,13 +69,13 @@ jobs:
           set -euo pipefail
           mkdir -p artifacts
           ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" \
-            "artifacts/BeBlog-Maker-Tools-0.2.1-Build-006-macOS-App.zip"
-          cp "$DMG_PATH" "artifacts/BeBlog-Maker-Tools-0.2.1-Build-006-macOS.dmg"
+            "artifacts/BeBlog-Maker-Tools-0.2.2-Build-007-macOS-App.zip"
+          cp "$DMG_PATH" "artifacts/BeBlog-Maker-Tools-0.2.2-Build-007-macOS.dmg"
 
       - name: Upload macOS artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: BeBlog-Maker-Tools-0.2.1-Build-006-macOS
+          name: BeBlog-Maker-Tools-0.2.2-Build-007-macOS
           path: artifacts/*
           if-no-files-found: error
           retention-days: 30

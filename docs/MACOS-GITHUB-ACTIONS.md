@@ -28,9 +28,9 @@ Tauri erzeugt dabei ein macOS-App-Bundle und ein DMG.
 Als GitHub-Artefakt wird anschließend bereitgestellt:
 
 ```text
-BeBlog-Maker-Tools-0.2.1-Build-006-macOS
-├── BeBlog-Maker-Tools-0.2.1-Build-006-macOS-App.zip
-└── BeBlog-Maker-Tools-0.2.1-Build-006-macOS.dmg
+BeBlog-Maker-Tools-0.2.2-Build-007-macOS
+├── BeBlog-Maker-Tools-0.2.2-Build-007-macOS-App.zip
+└── BeBlog-Maker-Tools-0.2.2-Build-007-macOS.dmg
 ```
 
 Die `.app` wird absichtlich mit macOS `ditto` als ZIP verpackt. So bleiben die Eigenschaften des App-Bundles beim Transport zuverlässig erhalten.
@@ -44,21 +44,21 @@ Die `.app` wird absichtlich mit macOS `ditto` als ZIP verpackt. So bleiben die E
 5. Branch `main` auswählen.
 6. **Run workflow** bestätigen.
 7. Warten, bis der Lauf grün abgeschlossen ist.
-8. Den Lauf öffnen und unten unter **Artifacts** das Artefakt `BeBlog-Maker-Tools-0.2.1-Build-006-macOS` herunterladen.
+8. Den Lauf öffnen und unten unter **Artifacts** das Artefakt `BeBlog-Maker-Tools-0.2.2-Build-007-macOS` herunterladen.
 
 ## Installation über DMG
 
 Für den normalen Gebrauch ist die DMG-Datei der bequemste Weg:
 
 1. Artefakt-ZIP von GitHub entpacken.
-2. `BeBlog-Maker-Tools-0.2.1-Build-006-macOS.dmg` öffnen.
+2. `BeBlog-Maker-Tools-0.2.2-Build-007-macOS.dmg` öffnen.
 3. App nach **Programme** ziehen.
 
 ## Direkte Nutzung der `.app`
 
 Alternativ:
 
-1. `BeBlog-Maker-Tools-0.2.1-Build-006-macOS-App.zip` entpacken.
+1. `BeBlog-Maker-Tools-0.2.2-Build-007-macOS-App.zip` entpacken.
 2. `BeBlog Maker Tools.app` nach `/Applications` bzw. **Programme** kopieren.
 
 ## Unsigned Build und Gatekeeper

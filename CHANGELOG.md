@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.2.2] – Build 007 – Estlcam Essentials
+
+### Added
+- eigenständiges CNC-Werkzeug „Estlcam Achsberechnung“
+- direkte Estlcam-Werte „Schritte je Umdrehung“ und „Weg je Umdrehung“
+- Zahnriemen- und Spindelantrieb
+- Verfahrweg-Kalibrierung über Sollweg und gemessenen Istweg
+- Estlcam-11-Eingabehilfe inklusive Hinweis „Steuerung programmieren“
+- Unit-Tests und vollständige Build-007-Dokumentation
+
+### Changed
+- allgemeine „Achsskalierung“ ist wieder klar auf GRBL / grblHAL / LinuxCNC beschränkt
+- Produktversion auf 0.2.2 angehoben
+- Android- und macOS-Actions-Artefaktnamen auf Build 007 aktualisiert
+
+### Preserved
+- Build-006-Motor-/Treiber-Kompatibilität inklusive Stecktreiber-Erweiterung
+- Android- und macOS-GitHub-Actions-Workflows
+- Footer „Entwickelt mit ❤️ für Maker“ und einmalige Versionsanzeige
+
 ## [0.2.1] – Build 006 – Motor & Treiber
 
 ### Added

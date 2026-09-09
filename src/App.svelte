@@ -3,6 +3,7 @@
   import TimingBeltTool from './tools/timing-belt/TimingBeltTool.svelte';
   import AxisScalingTool from './tools/axis-scaling/AxisScalingTool.svelte';
   import FeedsSpeedsTool from './tools/feeds-speeds/FeedsSpeedsTool.svelte';
+  import EstlcamAxisTool from './tools/estlcam-axis/EstlcamAxisTool.svelte';
   import MotorDriverTool from './tools/motor-driver/MotorDriverTool.svelte';
   import VolumetricFlowTool from './tools/volumetric-flow/VolumetricFlowTool.svelte';
   import FilamentCostTool from './tools/filament-cost/FilamentCostTool.svelte';
@@ -22,7 +23,7 @@
 
   const toolIcon = (tool: ToolId): IconName => {
     if (tool === 'timing-belt') return 'belt';
-    if (tool === 'axis-scaling') return 'axis';
+    if (tool === 'axis-scaling' || tool === 'estlcam-axis') return 'axis';
     if (tool === 'feeds-speeds') return 'feeds';
     if (tool === 'motor-driver') return 'driver';
     if (tool === 'volumetric-flow') return 'flow3d';
@@ -70,12 +71,13 @@
         <div class="nav-group"><p>{category}</p>{#each TOOL_DEFINITIONS.filter((tool) => tool.category === category) as tool}<button class:active={selectedTool === tool.id} on:click={() => selectTool(tool.id)} title={tool.description}><span class="tool-icon"><AppIcon name={toolIcon(tool.id)} size={21} /></span><span>{tool.title}</span></button>{/each}</div>
       {/each}
     </nav>
-    <section class="about-card"><div class="about-title"><AppIcon name="info" size={19} /><strong>Über BeBlog Maker Tools</strong></div><p>Praxisnahe Rechner und Hilfsmittel für Maker, CNC, 3D-Druck und Werkstatt.</p><p class="app-version">Version 0.2.1</p><a href="https://blog.beblog.de/" target="_blank" rel="noreferrer">blog.beblog.de <AppIcon name="external" size={15} /></a></section>
+    <section class="about-card"><div class="about-title"><AppIcon name="info" size={19} /><strong>Über BeBlog Maker Tools</strong></div><p>Praxisnahe Rechner und Hilfsmittel für Maker, CNC, 3D-Druck und Werkstatt.</p><p class="app-version">Version 0.2.2</p><a href="https://blog.beblog.de/" target="_blank" rel="noreferrer">blog.beblog.de <AppIcon name="external" size={15} /></a></section>
   </aside>
 
   <main class="workspace">
     {#if selectedTool === 'timing-belt'}<TimingBeltTool />
     {:else if selectedTool === 'axis-scaling'}<AxisScalingTool />
+    {:else if selectedTool === 'estlcam-axis'}<EstlcamAxisTool />
     {:else if selectedTool === 'feeds-speeds'}<FeedsSpeedsTool />
     {:else if selectedTool === 'motor-driver'}<MotorDriverTool />
     {:else if selectedTool === 'volumetric-flow'}<VolumetricFlowTool />
